@@ -7,7 +7,7 @@
 
 fn main() {
     let cat = ("Furry McFurson", 3.5);
-    let /* 在这里写你的模式 */ = cat;
+    let (name, age) /* 在这里写你的模式 */ = cat;
 
     println!("{} 已经 {} 岁了。", name, age);
 }

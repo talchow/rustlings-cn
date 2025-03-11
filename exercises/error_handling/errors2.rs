@@ -16,12 +16,14 @@
 
 use std::num::ParseIntError;
 
-pub fn total_cost(item_quantity: &str) -> Result<i32, ParseIntError> {
+pub fn total_cost(item_quantity: &str) -> Result<u32, String> {
     let processing_fee = 1;
     let cost_per_item = 5;
-    let qty = item_quantity.parse::<i32>();
-
-    Ok(qty * cost_per_item + processing_fee)
+    match item_quantity.parse::<u32>() {
+    Err(_) => Err("invalid digit found in string".to_string()),
+    Ok(0) => Err("quantity must be greater than zero".to_string()),
+    Ok(qty) => Ok(qty * cost_per_item + processing_fee),
+    }
 }
 
 #[cfg(test)]

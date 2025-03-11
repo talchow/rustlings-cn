@@ -4,8 +4,8 @@
 // I AM NOT DONE
 
 fn main() {
-    let number = "T-H-R-E-E"; // 不要改动此行
+    let mut number = "T-H-R-E-E"; // 不要改动此行
     println!("拼写一个数字 ： {}", number);
-    number = 3; // 不要重命名这个变量名
+   let number = 3; // 不要重命名这个变量名
     println!("数字加2为 ： {}", number + 2);
 }

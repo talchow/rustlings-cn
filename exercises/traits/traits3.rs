@@ -20,8 +20,16 @@ struct OtherSoftware {
     version_number: String,
 }
 
-impl Licensed for SomeSoftware {} // 不要修改此行
-impl Licensed for OtherSoftware {} // 不要修改此行
+impl Licensed for SomeSoftware {
+    fn licensing_info(&self) -> String {
+        "Some information".to_string()
+    }
+} // 不要修改此行
+impl Licensed for OtherSoftware {
+    fn licensing_info(&self) -> String {
+        "Some information".to_string()
+    }
+} // 不要修改此行
 
 #[cfg(test)]
 mod tests {

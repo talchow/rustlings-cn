@@ -6,6 +6,10 @@
 #[derive(Debug)]
 enum Message {
     // TODO: 定义下面所用的消息类型
+    Quit,
+    Echo,
+    Move,
+    ChangeColor,
 }
 
 fn main() {

@@ -7,9 +7,9 @@
 fn main() {
     let data = "Rust is great!".to_string();
 
-    get_char(data);
+    get_char(data.clone());
 
-    string_uppercase(&data);
+    string_uppercase(data);
 }
 
 // 应该不获取所有权
@@ -18,8 +18,8 @@ fn get_char(data: String) -> char {
 }
 
 // 应该获取所有权
-fn string_uppercase(mut data: &String) {
-    data = &data.to_uppercase();
+fn string_uppercase(mut data: String) {
+    data = data.to_uppercase();
 
     println!("{}", data);
 }

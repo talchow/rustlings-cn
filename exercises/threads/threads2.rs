@@ -8,20 +8,22 @@
 use std::sync::Arc;
 use std::thread;
 use std::time::Duration;
+use std::sync::Mutex;
 
 struct JobStatus {
     jobs_completed: u32,
 }
 
 fn main() {
-    let status = Arc::new(JobStatus { jobs_completed: 0 });
+    // let status = Arc::new(JobStatus { jobs_completed: 0 });
+    let status = Arc::new(Mutex::new(JobStatus{jobs_completed:0}));
     let mut handles = vec![];
     for _ in 0..10 {
         let status_shared = Arc::clone(&status);
         let handle = thread::spawn(move || {
             thread::sleep(Duration::from_millis(250));
             // TODO: 在更新共享值之前，你还需要做点什么
-            status_shared.jobs_completed += 1;
+            status_shared.lock().unwrap().jobs_completed += 1;
         });
         handles.push(handle);
     }
@@ -29,6 +31,6 @@ fn main() {
         handle.join().unwrap();
         // TODO: 打印 JobStatus.jobs_completed 的值。你可以从输出中注意到有趣的东西吗？
         // 你必须要 'join' 所有的线程句柄吗？
-        println!("jobs completed {}", ???);
+        println!("jobs completed {}", status.lock().unwrap().jobs_completed);
     }
 }

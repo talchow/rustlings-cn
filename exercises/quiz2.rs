@@ -30,11 +30,16 @@ mod my_module {
     use super::Command;
 
     // TODO: 补全函数签名！
-    pub fn transformer(input: ???) -> ??? {
+    pub fn transformer(input: Vec<(String, Command)>) -> Vec<String> {
         // TODO: 完成 output 的声明！
-        let mut output: ??? = vec![];
+        let mut output: Vec<String>  = vec![];
         for (string, command) in input.iter() {
             // TODO: 完成函数体。你可以做到的！
+            match command {
+                Command::Uppercase => output.push(string.to_uppercase()),
+                Command::Trim => output.push(string.trim().to_string()),
+                Command::Append(n) => output.push(format!("{}{}", string, "bar".repeat(*n))),
+            }
         }
         output
     }
@@ -43,7 +48,7 @@ mod my_module {
 #[cfg(test)]
 mod tests {
     // TODO: 我们需要导入什么使作用域中有 `transformer`？
-    use ???;
+    use super::my_module::transformer;
     use super::Command;
 
     #[test]

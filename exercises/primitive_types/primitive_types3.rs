@@ -5,7 +5,7 @@
 // I AM NOT DONE
 
 fn main() {
-    let a = ???
+    let a = [2,4,22,87];
 
     if a.len() >= 100 {
         println!("喔，那是一个大数组");

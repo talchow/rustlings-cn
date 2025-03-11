@@ -12,7 +12,7 @@ fn main() {
         println!("Good morning!");
     }
 
-    let // 像示例一样完成这行！或者将其设为 false ！
+    let is_evening = false;// 像示例一样完成这行！或者将其设为 false ！
     if is_evening {
         println!("Good evening!");
     }

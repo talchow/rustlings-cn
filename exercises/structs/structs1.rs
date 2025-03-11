@@ -6,9 +6,12 @@
 
 struct ColorClassicStruct {
     // TODO: 这边有东西
+    green: u8,
+    blue: u8,
+    red: u8,
 }
 
-struct ColorTupleStruct(/* TODO: 这边有东西 */);
+struct ColorTupleStruct(u8,u8,u8/* TODO: 这边有东西 */);
 
 #[derive(Debug)]
 struct UnitLikeStruct;
@@ -20,7 +23,11 @@ mod tests {
     #[test]
     fn classic_c_structs() {
         // TODO: 实例化一个经典的 c 结构！
-        // let green =
+        let green = ColorClassicStruct {
+            green: 255,
+            blue: 0,
+            red: 0,
+        };
 
         assert_eq!(green.red, 0);
         assert_eq!(green.green, 255);
@@ -30,7 +37,7 @@ mod tests {
     #[test]
     fn tuple_structs() {
         // TODO: 实例化一个元组结构！
-        // let green =
+        let green = ColorTupleStruct(0,255,0);
 
         assert_eq!(green.0, 0);
         assert_eq!(green.1, 255);
@@ -40,7 +47,8 @@ mod tests {
     #[test]
     fn unit_structs() {
         // TODO: 实例化一个类单元结构体！
-        // let unit_like_struct =
+        // let unit_like_struct = UnitLikeStruct;
+        let unit_like_struct = UnitLikeStruct;
         let message = format!("{:?}s are fun!", unit_like_struct);
 
         assert_eq!(message, "UnitLikeStructs are fun!");

@@ -3,7 +3,7 @@
 
 // I AM NOT DONE
 
-const NUMBER = 3;
+const NUMBER:i32 = 3;
 fn main() {
     println!("数字 {}", NUMBER);
 }

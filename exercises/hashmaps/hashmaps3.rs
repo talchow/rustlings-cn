@@ -19,7 +19,6 @@ use std::collections::HashMap;
 
 // 一个存储队伍名字和它的得分详情的结构。
 struct Team {
-    name: String,
     goals_scored: u8,
     goals_conceded: u8,
 }
@@ -34,9 +33,20 @@ fn build_scores_table(results: String) -> HashMap<String, Team> {
         let team_1_score: u8 = v[2].parse().unwrap();
         let team_2_name = v[1].to_string();
         let team_2_score: u8 = v[3].parse().unwrap();
-        // TODO: 使用从当前行提取的详细信息填充得分表。
-        // 请记住，队伍1的得分将会是队伍2的丢分，
-        // 同样，队伍2的得分也将会是队伍1的丢分。
+        
+        let team_1 = scores.entry(team_1_name).or_insert(Team {
+            goals_scored: 0,
+            goals_conceded: 0,
+        });
+        team_1.goals_scored += team_1_score;
+        team_1.goals_conceded += team_2_score;
+
+        let team_2 = scores.entry(team_2_name).or_insert(Team {
+            goals_scored: 0,
+            goals_conceded: 0,
+        });
+        team_2.goals_scored += team_2_score;
+        team_2.goals_conceded += team_1_score;
     }
     scores
 }

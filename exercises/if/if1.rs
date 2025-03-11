@@ -8,6 +8,11 @@ pub fn bigger(a: i32, b: i32) -> i32 {
     // 不要使用：
     // - 其它函数调用
     // - 额外的变量
+    if a > b {
+        a
+    }else {
+        b
+    }
 }
 
 // Don't mind this for now :)

@@ -9,7 +9,7 @@
 fn indexing_tuple() {
     let numbers = (1, 2, 3);
     // 替换下面 ??? 为元组索引表达式。
-    let second = ???;
+    let second = numbers.1;
 
     assert_eq!(2, second,
         "这不是元组的第2个元素！")

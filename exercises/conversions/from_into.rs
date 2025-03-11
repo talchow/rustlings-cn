@@ -37,9 +37,32 @@ impl Default for Person {
 
 impl From<&str> for Person {
     fn from(s: &str) -> Person {
+        if s.len() == 0 {
+            return Person::default();
+        }else{
+            let mut name_age = s.split(",");
+            if name_age.clone().count() != 2 {
+                return Person::default();
+            }else {
+                let name = name_age.next().unwrap();
+                if name.len() == 0 {
+                    return Person::default();
+                }else {
+                    let age = name_age.next().unwrap();
+                    if age.parse::<usize>().is_err() {
+                        return Person::default();
+                    }else {
+                        return Person {
+                            name: String::from(name),
+                            age: age.parse::<usize>().unwrap(),
+                        }
+                    }
+                }
+            }
+        }
+        
     }
 }
-
 fn main() {
     // 使用 `from` 函数
     let p1 = Person::from("Mark,20");

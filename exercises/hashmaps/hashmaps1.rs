@@ -11,11 +11,13 @@
 use std::collections::HashMap;
 
 fn fruit_basket() -> HashMap<String, u32> {
-    let mut basket = // TODO: 在这里声明你的哈希表。
+    let mut basket = HashMap::new(); 
 
     // 已经给你两根香蕉了 :)
     basket.insert(String::from("banana"), 2);
-
+    basket.insert(String::from("apple"), 4);
+    basket.insert(String::from("mango"), 3);
+    basket.insert(String::from("orange"), 5);
     // TODO: 在这里将更多水果放入你的篮子中。
 
     basket

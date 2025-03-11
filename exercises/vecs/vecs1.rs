@@ -10,7 +10,7 @@
 
 fn array_and_vec() -> ([i32; 4], Vec<i32>) {
     let a = [10, 20, 30, 40]; // 一个平平无奇的数组
-    let v = // TODO: 使用 vectors 宏在这里定义你的 vector
+    let v = vec![10, 20, 30, 40]; // 一个平平无奇的向量
 
     (a, v)
 }

@@ -11,7 +11,7 @@
 fn vec_loop(mut v: Vec<i32>) -> Vec<i32> {
     for i in v.iter_mut() {
         // TODO: 在这里将 Vec `v` 内的每个元素乘以2
-        ???
+       *i *= 2; 
     }
 
     // 在这里，`v` 应当等于 [4, 8, 12, 16, 20]。
@@ -22,7 +22,7 @@ fn vec_map(v: &Vec<i32>) -> Vec<i32> {
     v.iter().map(|num| {
         // TODO: 像上面做的一样 - 但是不是改变 Vec，
         // 你可以直接返回新数字！
-        ???
+       num * 2
     }).collect()
 }
 
